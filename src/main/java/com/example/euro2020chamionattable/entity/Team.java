@@ -36,4 +36,7 @@ public class Team {
     @Column(name = "nextgamewith")
     private int nextGameWith;
 
+    @Column(name = "placeingroup")
+    private int placeInGroup;
+
 }
