@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!--<link rel="stylesheet" th:href="@{css/}" href="../static/css/rooms.css">-->
+    <title>GroupStage</title>
+</head>
+<body>
+    <table border="1">
+        <caption>Group A</caption>
+        <tr>
+            <th>№</th>
+            <th>Name</th>
+            <th>+/-</th>
+            <th>Score</th>
+        </tr>
+            <div th:each="team : ${group_A}">
+                <tr><td th:text="${team.getPlaceInGroup()}"></td><td th:text="${team.getName()}"></td><td th:text="${team.getNumberOfMatches()}"></td><td th:text="${team.getScoredGoals() - team.getConcededGoals()}"></td><td th:text="${team.getScoreInGroup()}"></td></tr>        </div>
+        </div>
+    </table><hr>
+    <table border="1">
+        <caption>Group B</caption>
+        <tr>
+            <th>№</th>
+            <th>Name</th>
+            <th>+/-</th>
+            <th>Score</th>
+        </tr>
+        <div th:each="team : ${group_B}">
+            <tr><td th:text="${team.getPlaceInGroup()}"></td><td th:text="${team.getName()}"></td><td th:text="${team.getNumberOfMatches()}"></td><td th:text="${team.getScoredGoals() - team.getConcededGoals()}"></td><td th:text="${team.getScoreInGroup()}"></td></tr>        </div>
+        </div>
+    </table><hr>
+    <table border="1">
+        <caption>Group C</caption>
+        <tr>
+            <th>№</th>
+            <th>Name</th>
+            <th>+/-</th>
+            <th>Score</th>
+        </tr>
+        <div th:each="team : ${group_C}">
+            <tr><td th:text="${team.getPlaceInGroup()}"></td><td th:text="${team.getName()}"></td><td th:text="${team.getNumberOfMatches()}"></td><td th:text="${team.getScoredGoals() - team.getConcededGoals()}"></td><td th:text="${team.getScoreInGroup()}"></td></tr>        </div>
+    </table><hr>
+    <table border="1">
+        <caption>Group D</caption>
+        <tr>
+            <th>№</th>
+            <th>Name</th>
+            <th>+/-</th>
+            <th>Score</th>
+        </tr>
+        <div th:each="team : ${group_D}">
+            <tr><td th:text="${team.getPlaceInGroup()}"></td><td th:text="${team.getName()}"></td><td th:text="${team.getNumberOfMatches()}"></td><td th:text="${team.getScoredGoals() - team.getConcededGoals()}"></td><td th:text="${team.getScoreInGroup()}"></td></tr>        </div>
+    </table><hr>
+    <table border="1">
+        <caption>Group E</caption>
+        <tr>
+            <th>№</th>
+            <th>Name</th>
+            <th>+/-</th>
+            <th>Score</th>
+        </tr>
+        <div th:each="team : ${group_E}">
+            <tr><td th:text="${team.getPlaceInGroup()}"></td><td th:text="${team.getName()}"></td><td th:text="${team.getNumberOfMatches()}"></td><td th:text="${team.getScoredGoals() - team.getConcededGoals()}"></td><td th:text="${team.getScoreInGroup()}"></td></tr>        </div>
+    </table><hr>
+    <table border="1">
+        <caption>Group F</caption>
+        <tr>
+            <th>№</th>
+            <th>Name</th>
+            <th>Matches</th>
+            <th>+/-</th>
+            <th>Score</th>
+        </tr>
+        <div th:each="team : ${group_F}">
+            <tr><td th:text="${team.getPlaceInGroup()}"></td><td th:text="${team.getName()}"></td><td th:text="${team.getNumberOfMatches()}"></td><td th:text="${team.getScoredGoals() - team.getConcededGoals()}"></td><td th:text="${team.getScoreInGroup()}"></td></tr>
+        </div>
+    </table><hr>
+
+
+</table>
+</body>
+</html>

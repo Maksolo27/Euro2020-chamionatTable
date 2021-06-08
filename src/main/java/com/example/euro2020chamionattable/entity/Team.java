@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "nationalteam")
 @NoArgsConstructor
 @Data
 public class Team {
@@ -20,10 +20,10 @@ public class Team {
     @Column(name = "scoredgoals")
     private int scoredGoals;
 
-    @Column(name = "concededGoals")
+    @Column(name = "concededgoals")
     private int concededGoals;
 
-    @Column(name = "champinatGroup")
+    @Column(name = "champinatgroup")
     @Enumerated(value = EnumType.STRING)
     private Group group;
 
@@ -33,10 +33,10 @@ public class Team {
     @Column(name = "scoreingroup")
     private int scoreInGroup;
 
-    @Column(name = "nextgamewith")
-    private int nextGameWith;
-
     @Column(name = "placeingroup")
     private int placeInGroup;
+
+    @Column(name = "numberofmatches")
+    private int numberOfMatches;
 
 }
