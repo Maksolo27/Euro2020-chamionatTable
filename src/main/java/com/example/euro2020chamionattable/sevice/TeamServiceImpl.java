@@ -1,5 +1,6 @@
 package com.example.euro2020chamionattable.sevice;
 
+import com.example.euro2020chamionattable.entity.Group;
 import com.example.euro2020chamionattable.entity.Team;
 import com.example.euro2020chamionattable.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,10 @@ public class TeamServiceImpl implements TeamService{
     @Override
     public Team getByName(String name) {
         return teamRepository.getByName(name);
+    }
+
+    @Override
+    public List<Team> getTeamsByGroup(Group group) {
+        return teamRepository.getTeamsByGroup(group);
     }
 }
