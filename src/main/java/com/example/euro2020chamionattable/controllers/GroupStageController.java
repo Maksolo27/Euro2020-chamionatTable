@@ -22,12 +22,12 @@ public class GroupStageController {
     @GetMapping
     public String getGroups(Model model){
         List<Team> teamList = teamService.getAll();
-        model.addAttribute("group_A", teamList.stream().filter(x -> x.getGroup().equals(Group.A)).collect(Collectors.toList()));
-        model.addAttribute("group_B", teamList.stream().filter(x -> x.getGroup().equals(Group.B)).collect(Collectors.toList()));
-        model.addAttribute("group_C", teamList.stream().filter(x -> x.getGroup().equals(Group.C)).collect(Collectors.toList()));
-        model.addAttribute("group_D", teamList.stream().filter(x -> x.getGroup().equals(Group.D)).collect(Collectors.toList()));
-        model.addAttribute("group_E", teamList.stream().filter(x -> x.getGroup().equals(Group.E)).collect(Collectors.toList()));
-        model.addAttribute("group_F", teamList.stream().filter(x -> x.getGroup().equals(Group.F)).collect(Collectors.toList()));
+        model.addAttribute("group_A", teamList.stream().filter(x -> x.getGroup().equals(Group.A)).collect(Collectors.toList()))
+                .addAttribute("group_B", teamList.stream().filter(x -> x.getGroup().equals(Group.B)).collect(Collectors.toList()))
+                .addAttribute("group_C", teamList.stream().filter(x -> x.getGroup().equals(Group.C)).collect(Collectors.toList()))
+                .addAttribute("group_D", teamList.stream().filter(x -> x.getGroup().equals(Group.D)).collect(Collectors.toList()))
+                .addAttribute("group_E", teamList.stream().filter(x -> x.getGroup().equals(Group.E)).collect(Collectors.toList()))
+                .addAttribute("group_F", teamList.stream().filter(x -> x.getGroup().equals(Group.F)).collect(Collectors.toList()));
         return "groupStage";
     }
 }
