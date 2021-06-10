@@ -34,7 +34,12 @@ public class MatchesGenerator {
                 matchSet.add(match);
             }
         }
-        Set<Match> matches = new HashSet<>();
+        List<Match> withOutDublicated = withoutDublicated(matchSet, group);
+        addToDatabase(new HashSet<>(withOutDublicated));
+        return new HashSet<>(withOutDublicated);
+    }
+
+    private List<Match> withoutDublicated(Set<Match> matchSet, Group group){
         List<Match> matchList = new ArrayList<>(matchSet);
         List<Match> withOutDublicated = new ArrayList<>(matchList);
         for (Match match : matchList) {
@@ -45,11 +50,8 @@ public class MatchesGenerator {
             if(withOutDublicated.contains(duplicatedMatch)) {
                 withOutDublicated.remove(match);
             }
-
         }
-        System.out.println(withOutDublicated);
-        addToDatabase(new HashSet<>(withOutDublicated));
-        return matchSet;
+        return withOutDublicated;
     }
 
     private void addToDatabase(Set<Match> matchSet){
