@@ -22,7 +22,6 @@ public class MatchesGenerator {
     public Set<Match> generateCalendarForGroup(Group group){
         List<Team> teamList = teamService.getTeamsByGroup(group);
         Set<Match> matchSet = new HashSet<>();
-        List<Match> allGroupMatches = matchService.getTeamsByGroup(group);
         for (int i = 0; i < teamList.size(); i++) {
             for (int j = 0; j < teamList.size(); j++) {
                 if(teamList.get(i).getId() == teamList.get(j).getId()){
@@ -35,6 +34,26 @@ public class MatchesGenerator {
                 matchSet.add(match);
             }
         }
+        Set<Match> matches = new HashSet<>();
+        List<Match> matchList = new ArrayList<>(matches);
+        for (Match match : matchList) {
+            Match duplicatedMatch = new Match();
+            duplicatedMatch.setChampionatGroup(group);
+            duplicatedMatch.setFirstTeamId(match.getSecondTeamId());
+            duplicatedMatch.setSecondTeamId(match.getFirstTeamId());
+            if(matchList.contains(duplicatedMatch)){
+                matchList.remove(match);
+            }
+        }
+        System.out.println(matchList);
+        addToDatabase(new HashSet<>(matchList));
         return matchSet;
+    }
+
+    private void addToDatabase(Set<Match> matchSet){
+        Iterator<Match> matchSetiterator = matchSet.iterator();
+        while (matchSetiterator.hasNext()){
+            matchService.add(matchSetiterator.next());
+        }
     }
 }

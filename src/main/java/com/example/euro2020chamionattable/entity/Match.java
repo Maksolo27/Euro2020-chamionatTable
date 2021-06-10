@@ -31,4 +31,6 @@ public class Match {
     private int secondTeamId;
     @Column(name = "matchdate")
     private String matchDate;
+
+
 }
