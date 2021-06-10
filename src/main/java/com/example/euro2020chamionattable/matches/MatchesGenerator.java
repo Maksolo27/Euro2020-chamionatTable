@@ -35,18 +35,20 @@ public class MatchesGenerator {
             }
         }
         Set<Match> matches = new HashSet<>();
-        List<Match> matchList = new ArrayList<>(matches);
+        List<Match> matchList = new ArrayList<>(matchSet);
+        List<Match> withOutDublicated = new ArrayList<>(matchList);
         for (Match match : matchList) {
             Match duplicatedMatch = new Match();
             duplicatedMatch.setChampionatGroup(group);
             duplicatedMatch.setFirstTeamId(match.getSecondTeamId());
             duplicatedMatch.setSecondTeamId(match.getFirstTeamId());
-            if(matchList.contains(duplicatedMatch)){
-                matchList.remove(match);
+            if(withOutDublicated.contains(duplicatedMatch)) {
+                withOutDublicated.remove(match);
             }
+
         }
-        System.out.println(matchList);
-        addToDatabase(new HashSet<>(matchList));
+        System.out.println(withOutDublicated);
+        addToDatabase(new HashSet<>(withOutDublicated));
         return matchSet;
     }
 
