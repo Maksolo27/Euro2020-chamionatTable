@@ -24,8 +24,6 @@ public class GroupStageController {
     private TeamServiceImpl teamService;
     @Autowired
     private MatchesGenerator matchesGenerator;
-    @Autowired
-    private MatchServiceImpl matchService;
 
     @GetMapping
     public String getGroups(Model model){
