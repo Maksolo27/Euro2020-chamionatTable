@@ -39,6 +39,7 @@ public class MatchesGenerator {
         return new HashSet<>(withOutDublicated);
     }
 
+    //for national teams matches
     private List<Match> withoutDublicated(Set<Match> matchSet, Group group){
         List<Match> matchList = new ArrayList<>(matchSet);
         List<Match> withOutDublicated = new ArrayList<>(matchList);

@@ -28,7 +28,9 @@ public class GroupStageController {
     @GetMapping
     public String getGroups(Model model){
         List<Team> teamList = teamService.getAll();
-        matchesGenerator.generateCalendarForGroup(Group.A);
+        for (int i = 1; i < Group.values().length; i++) {
+            matchesGenerator.generateCalendarForGroup(Group.values()[i]);
+        }
         model.addAttribute("group_A", teamList.stream().filter(x -> x.getGroup().equals(Group.A)).collect(Collectors.toList()))
                 .addAttribute("group_B", teamList.stream().filter(x -> x.getGroup().equals(Group.B)).collect(Collectors.toList()))
                 .addAttribute("group_C", teamList.stream().filter(x -> x.getGroup().equals(Group.C)).collect(Collectors.toList()))
