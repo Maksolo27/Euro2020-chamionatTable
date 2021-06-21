@@ -9,5 +9,6 @@ public interface MatchService {
 
     Match add(Match match);
 
-    List<Match> getTeamsByGroup(Group group);
+    List<Match> getMatchesByGroup(Group group);
+
 }

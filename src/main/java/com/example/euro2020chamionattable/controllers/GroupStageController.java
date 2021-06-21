@@ -24,19 +24,25 @@ public class GroupStageController {
     private TeamServiceImpl teamService;
     @Autowired
     private MatchesGenerator matchesGenerator;
+    @Autowired
+    private MatchServiceImpl matchService;
 
     @GetMapping
     public String getGroups(Model model){
         List<Team> teamList = teamService.getAll();
-        for (int i = 1; i < Group.values().length; i++) {
-            matchesGenerator.generateCalendarForGroup(Group.values()[i]);
-        }
+        List<Match> matchList = matchService.getAll();
         model.addAttribute("group_A", teamList.stream().filter(x -> x.getGroup().equals(Group.A)).collect(Collectors.toList()))
                 .addAttribute("group_B", teamList.stream().filter(x -> x.getGroup().equals(Group.B)).collect(Collectors.toList()))
                 .addAttribute("group_C", teamList.stream().filter(x -> x.getGroup().equals(Group.C)).collect(Collectors.toList()))
                 .addAttribute("group_D", teamList.stream().filter(x -> x.getGroup().equals(Group.D)).collect(Collectors.toList()))
                 .addAttribute("group_E", teamList.stream().filter(x -> x.getGroup().equals(Group.E)).collect(Collectors.toList()))
-                .addAttribute("group_F", teamList.stream().filter(x -> x.getGroup().equals(Group.F)).collect(Collectors.toList()));
+                .addAttribute("group_F", teamList.stream().filter(x -> x.getGroup().equals(Group.F)).collect(Collectors.toList()))
+                .addAttribute("matches_A", matchList.stream().filter(x -> x.getChampionatGroup().equals(Group.A)).collect(Collectors.toList()))
+                .addAttribute("matches_B", matchList.stream().filter(x -> x.getChampionatGroup().equals(Group.B)).collect(Collectors.toList()))
+                .addAttribute("matches_C", matchList.stream().filter(x -> x.getChampionatGroup().equals(Group.C)).collect(Collectors.toList()))
+                .addAttribute("matches_D", matchList.stream().filter(x -> x.getChampionatGroup().equals(Group.D)).collect(Collectors.toList()))
+                .addAttribute("matches_E", matchList.stream().filter(x -> x.getChampionatGroup().equals(Group.E)).collect(Collectors.toList()))
+                .addAttribute("matches_F", matchList.stream().filter(x -> x.getChampionatGroup().equals(Group.F)).collect(Collectors.toList()));
         return "groupStage";
     }
 }
