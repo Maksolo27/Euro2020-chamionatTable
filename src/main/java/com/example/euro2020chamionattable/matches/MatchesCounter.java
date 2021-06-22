@@ -26,6 +26,7 @@ public class MatchesCounter {
     }
 
     private void calculateMatchScore(Match match) {
+
         Team firstTeam = teamService.getById(match.getFirstTeamId());
         Team secondTeam = teamService.getById(match.getSecondTeamId());
         if(match.getFirstTeamGoals() > match.getSecondTeamGoals()){
