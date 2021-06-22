@@ -12,4 +12,6 @@ import java.util.*;
 public interface MatchRepository extends JpaRepository<Match, Integer>, CrudRepository<Match, Integer> {
 
     List<Match> findMatchesByChampionatGroup(Group group);
+
+
 }
