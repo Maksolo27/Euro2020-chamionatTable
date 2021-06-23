@@ -14,4 +14,7 @@ public interface TeamService {
     Team getByName(String name);
 
     List<Team> getTeamsByGroup(Group group);
+
+    void update(Team team);
+
 }

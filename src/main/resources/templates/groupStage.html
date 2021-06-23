@@ -20,8 +20,19 @@
             <div th:each="team : ${group_A}">
                 <tr><td th:text="${team.getPlaceInGroup()}"></td><td th:text="${team.getName()}"></td><td th:text="${team.getNumberOfMatches()}"></td><td th:text="${team.getScoredGoals() - team.getConcededGoals()}"></td><td th:text="${team.getScoreInGroup()}"></td></tr>        </div>
         </div>
-    </table><hr>
-
+    </table>
+    <div th:each="match : ${matches_A}" >
+        <a th:each="team : ${group_A}">
+            <b th:if="${match.getFirstTeamId() == team.getId()}" th:text="${team.getName()}"></b>
+        </a>
+        <b th:text="${match.getFirstTeamGoals()}"></b>
+        <b> : </b>
+        <b th:text="${match.getSecondTeamGoals()}"></b>
+        <a th:each="team : ${group_A}">
+            <b th:if="${match.getSecondTeamId() == team.getId()}" th:text="${team.getName()}"></b>
+        </a>
+    </div>
+    <hr>
     <table border="1">
         <caption>Group B</caption>
         <tr>
@@ -33,7 +44,18 @@
         <div th:each="team : ${group_B}">
             <tr><td th:text="${team.getPlaceInGroup()}"></td><td th:text="${team.getName()}"></td><td th:text="${team.getNumberOfMatches()}"></td><td th:text="${team.getScoredGoals() - team.getConcededGoals()}"></td><td th:text="${team.getScoreInGroup()}"></td></tr>        </div>
         </div>
-    </table><hr>
+    </table>
+    <div th:each="match : ${matches_B}" >
+        <a th:each="team : ${group_B}">
+            <b th:if="${match.getFirstTeamId() == team.getId()}" th:text="${team.getName()}"></b>
+        </a>
+        <b th:text="${match.getFirstTeamGoals()}"></b>
+        <b> : </b>
+        <b th:text="${match.getSecondTeamGoals()}"></b>
+        <a th:each="team : ${group_B}">
+            <b th:if="${match.getSecondTeamId() == team.getId()}" th:text="${team.getName()}"></b>
+        </a>
+    </div><hr>
     <table border="1">
         <caption>Group C</caption>
         <tr>
@@ -44,7 +66,18 @@
         </tr>
         <div th:each="team : ${group_C}">
             <tr><td th:text="${team.getPlaceInGroup()}"></td><td th:text="${team.getName()}"></td><td th:text="${team.getNumberOfMatches()}"></td><td th:text="${team.getScoredGoals() - team.getConcededGoals()}"></td><td th:text="${team.getScoreInGroup()}"></td></tr>        </div>
-    </table><hr>
+    </table>
+    <div th:each="match : ${matches_C}" >
+        <a th:each="team : ${group_C}">
+            <b th:if="${match.getFirstTeamId() == team.getId()}" th:text="${team.getName()}"></b>
+        </a>
+        <b th:text="${match.getFirstTeamGoals()}"></b>
+        <b> : </b>
+        <b th:text="${match.getSecondTeamGoals()}"></b>
+        <a th:each="team : ${group_C}">
+            <b th:if="${match.getSecondTeamId() == team.getId()}" th:text="${team.getName()}"></b>
+        </a>
+    </div><hr>
     <table border="1">
         <caption>Group D</caption>
         <tr>
@@ -55,7 +88,18 @@
         </tr>
         <div th:each="team : ${group_D}">
             <tr><td th:text="${team.getPlaceInGroup()}"></td><td th:text="${team.getName()}"></td><td th:text="${team.getNumberOfMatches()}"></td><td th:text="${team.getScoredGoals() - team.getConcededGoals()}"></td><td th:text="${team.getScoreInGroup()}"></td></tr>        </div>
-    </table><hr>
+    </table>
+    <div th:each="match : ${matches_D}" >
+        <a th:each="team : ${group_D}">
+            <b th:if="${match.getFirstTeamId() == team.getId()}" th:text="${team.getName()}"></b>
+        </a>
+        <b th:text="${match.getFirstTeamGoals()}"></b>
+        <b> : </b>
+        <b th:text="${match.getSecondTeamGoals()}"></b>
+        <a th:each="team : ${group_D}">
+            <b th:if="${match.getSecondTeamId() == team.getId()}" th:text="${team.getName()}"></b>
+        </a>
+    </div><hr>
     <table border="1">
         <caption>Group E</caption>
         <tr>
@@ -66,7 +110,18 @@
         </tr>
         <div th:each="team : ${group_E}">
             <tr><td th:text="${team.getPlaceInGroup()}"></td><td th:text="${team.getName()}"></td><td th:text="${team.getNumberOfMatches()}"></td><td th:text="${team.getScoredGoals() - team.getConcededGoals()}"></td><td th:text="${team.getScoreInGroup()}"></td></tr>        </div>
-    </table><hr>
+    </table>
+    <div th:each="match : ${matches_E}" >
+        <a th:each="team : ${group_E}">
+            <b th:if="${match.getFirstTeamId() == team.getId()}" th:text="${team.getName()}"></b>
+        </a>
+        <b th:text="${match.getFirstTeamGoals()}"></b>
+        <b> : </b>
+        <b th:text="${match.getSecondTeamGoals()}"></b>
+        <a th:each="team : ${group_E}">
+            <b th:if="${match.getSecondTeamId() == team.getId()}" th:text="${team.getName()}"></b>
+        </a>
+    </div><hr>
     <table border="1">
         <caption>Group F</caption>
         <tr>
@@ -79,9 +134,18 @@
         <div th:each="team : ${group_F}">
             <tr><td th:text="${team.getPlaceInGroup()}"></td><td th:text="${team.getName()}"></td><td th:text="${team.getNumberOfMatches()}"></td><td th:text="${team.getScoredGoals() - team.getConcededGoals()}"></td><td th:text="${team.getScoreInGroup()}"></td></tr>
         </div>
-    </table><hr>
-
-
-</table>
+    </table>
+    <div th:each="match : ${matches_F}" >
+        <a th:each="team : ${group_F}">
+            <b th:if="${match.getFirstTeamId() == team.getId()}" th:text="${team.getName()}"></b>
+        </a>
+        <b th:text="${match.getFirstTeamGoals()}"></b>
+        <b> : </b>
+        <b th:text="${match.getSecondTeamGoals()}"></b>
+        <a th:each="team : ${group_F}">
+            <b th:if="${match.getSecondTeamId() == team.getId()}" th:text="${team.getName()}"></b>
+        </a>
+    </div>
+    <hr>
 </body>
 </html>

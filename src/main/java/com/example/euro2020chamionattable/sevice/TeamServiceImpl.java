@@ -33,4 +33,9 @@ public class TeamServiceImpl implements TeamService{
     public List<Team> getTeamsByGroup(Group group) {
         return teamRepository.getTeamsByGroup(group);
     }
+
+    @Override
+    public void update(Team team) {
+        teamRepository.save(team);
+    }
 }
