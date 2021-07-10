@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -36,13 +38,10 @@ public class GroupStageController {
                 .addAttribute("group_C", teamList.stream().filter(x -> x.getGroup().equals(Group.C)).collect(Collectors.toList()))
                 .addAttribute("group_D", teamList.stream().filter(x -> x.getGroup().equals(Group.D)).collect(Collectors.toList()))
                 .addAttribute("group_E", teamList.stream().filter(x -> x.getGroup().equals(Group.E)).collect(Collectors.toList()))
-                .addAttribute("group_F", teamList.stream().filter(x -> x.getGroup().equals(Group.F)).collect(Collectors.toList()))
-                .addAttribute("matches_A", matchList.stream().filter(x -> x.getChampionatGroup().equals(Group.A)).collect(Collectors.toList()))
-                .addAttribute("matches_B", matchList.stream().filter(x -> x.getChampionatGroup().equals(Group.B)).collect(Collectors.toList()))
-                .addAttribute("matches_C", matchList.stream().filter(x -> x.getChampionatGroup().equals(Group.C)).collect(Collectors.toList()))
-                .addAttribute("matches_D", matchList.stream().filter(x -> x.getChampionatGroup().equals(Group.D)).collect(Collectors.toList()))
-                .addAttribute("matches_E", matchList.stream().filter(x -> x.getChampionatGroup().equals(Group.E)).collect(Collectors.toList()))
-                .addAttribute("matches_F", matchList.stream().filter(x -> x.getChampionatGroup().equals(Group.F)).collect(Collectors.toList()));
+                .addAttribute("group_F", teamList.stream().filter(x -> x.getGroup().equals(Group.F)).collect(Collectors.toList()));
         return "groupStage";
     }
+
+
 }
+

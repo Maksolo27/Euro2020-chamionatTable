@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!--<link rel="stylesheet" th:href="@{css/}" href="../static/css/rooms.css">-->
+    <title>GroupStage</title>
+</head>
+<body>
+<table border="1">
+    <caption th:text="${current_group.get(0).getGroup().toString()}"></caption>
+    <tr>
+        <th>№</th>
+        <th>Name</th>
+        <th>Matches</th>
+        <th>+/-</th>
+        <th>Score</th>
+    </tr>
+    <div th:each="team : ${current_group}">
+        <tr><td th:text="${team.getPlaceInGroup()}"></td><td th:text="${team.getName()}"></td><td th:text="${team.getNumberOfMatches()}"></td><td th:text="${team.getScoredGoals() - team.getConcededGoals()}"></td><td th:text="${team.getScoreInGroup()}"></td></tr>        </div>
+    </div>
+</table>
+<div th:each="match : ${current_group_matches}" >
+    <a th:each="team : ${current_group}">
+        <b th:if="${match.getFirstTeamId() == team.getId()}" th:text="${team.getName()}"></b>
+    </a>
+    <b th:text="${match.getFirstTeamGoals()}"></b>
+    <b> : </b>
+    <b th:text="${match.getSecondTeamGoals()}"></b>
+    <a th:each="team : ${current_group}">
+        <b th:if="${match.getSecondTeamId() == team.getId()}" th:text="${team.getName()}"></b>
+    </a>
+</div>
+</body>
+</html>
